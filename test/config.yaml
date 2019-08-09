@@ -1,0 +1,25 @@
+algorithm: ef
+outdir: ext_biaff_drop_5
+dist_feat: True
+rel_feat: True
+scorer: biaffine
+scorer_indim: 200
+tree_encoder: childsum
+attention: mlp
+word_dim: 100
+pos_dim: 100
+unlabel_weight: 0.5
+pos_dropout_rate: 0.33
+extrn_file: ../pretrain/glove.6B.100d.txt
+train:
+  train_file: ../tagged_eng_sd/train_pro.conll
+  dev_file: ../tagged_eng_sd/dev_pro.conll
+  epochs: 30
+  violation: full
+  update_errors_num: 30
+  run_dev_every: 1
+  run_dev_after: 1
+test:
+  test_file: ../tagged_eng_sd/test_pro.conll
+  vocab: vocab.pkl
+  model: parser.model2

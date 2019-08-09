@@ -1,0 +1,20 @@
+algorithm: ef
+outdir: bilstm
+scorer: biaffine
+tree_encoder: childsum
+encoder: bilstm
+attention: mlp
+rel_feat: True
+scorer_indim: 400
+train:
+  train_file: sample.conll
+  dev_file: sample.conll
+  epochs: 700
+  violation: full
+  update_errors_num: 50
+  run_dev_every: 100
+  run_dev_after: 1
+test:
+  test_file: sample.conll
+  vocab: vocab.pkl
+  model: parser.model15
